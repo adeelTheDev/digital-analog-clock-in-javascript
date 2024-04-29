@@ -1,0 +1,96 @@
+body {
+  font-family: "Play", sans-serif;
+}
+.clock::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #4c4c4c;
+  position: absolute;
+  inset: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}
+
+.number {
+  position: absolute;
+  inset: 15px;
+  transform: rotate(calc(30deg * var(--num)));
+  text-align: center;
+}
+
+.number > b {
+  font-size: 1.4em;
+  opacity: 0.5;
+  display: inline-block;
+  transform: rotate(calc(-30deg * var(--num)));
+}
+
+.circle {
+  position: absolute;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 50%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.circle.hour {
+  --color: 232, 65, 24;
+  border-color: rgba(var(--color), 0.3);
+  background-color: rgba(var(--color), 0.020);
+  inset: 32%;
+  
+}
+
+.circle.minute{
+  --color: 68, 189, 50;
+  border-color: rgba(var(--color), 0.3);
+  background-color: rgba(var(--color), 0.020);
+  inset: 24%;
+}
+
+.circle.second {
+  --color: 230, 171, 8;
+  border-color: rgba(var(--color), 0.3);
+  background-color: rgba(var(--color), 0.020);
+  inset: 16%;
+}
+
+.circle i {
+  display: inline-block;
+  position: absolute;
+  height: 50%;
+  width: 4px;
+  transform-origin: bottom;
+  transform: scaleY(0.6);
+}
+
+.circle.hour i{
+  z-index: 10;
+  background-color: rgba(var(--color));
+}
+
+.circle.minute i{
+  z-index: 20;
+  background-color: rgba(var(--color));
+}
+
+.circle.second i{
+  z-index: 30;
+  width: 2px;
+  background-color: rgba(var(--color));
+}
+
+.circle::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(var(--color));
+  background-color: rgba(var(--color));
+  position: absolute;
+  top: 0;
+  transform: translateY(-50%); 
+}
